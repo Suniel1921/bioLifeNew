@@ -11,7 +11,11 @@ const Specification = ({ product }) => {
             <tbody>
               <tr>
                 <td><strong>Brand:</strong></td>
-                <td>{product.brand}</td>
+                <td>{product.brand.brandName}</td>
+              </tr>
+              <tr>
+                <td><strong>Category:</strong></td>
+                <td>{product.category.categoryName}</td>
               </tr>
               <tr>
                 <td><strong>Real Price:</strong></td>

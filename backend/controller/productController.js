@@ -115,8 +115,7 @@ exports.getAllProducts = async (req, res) => {
 exports.getSingleProduct = async (req, res) => {
     try {
       const { slug } = req.params;
-      console.log('Slug received:', slug); // Debugging log
-      const singleProduct = await productModel.findOne({ slug });
+      const singleProduct = await productModel.findOne({ slug }).populate('category').populate('brand');
       if (!singleProduct) {
         return res.status(400).json({ success: false, message: 'Single product not found' });
       }
@@ -212,7 +211,7 @@ exports.getRelatedProducts = async (req, res) => {
         const { id } = req.params;
 
         // Retrieve products that belong to the category of the main product
-        const relatedProducts = await productModel.find({ category: id });
+        const relatedProducts = await productModel.find({ category: id }).populate('brand');
 
         if (relatedProducts.length === 0) {
             return res.status(404).json({ success: false, message: 'No related products found' });

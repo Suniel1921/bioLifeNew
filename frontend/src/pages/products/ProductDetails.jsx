@@ -24,6 +24,7 @@ const ProductDetails = () => {
         const fetchProduct = async () => {
             try {
                 const response = await axios.get(`${import.meta.env.VITE_REACT_APP_URL}/api/v1/product/getSingleProduct/${slug}`);
+                console.log(response)
 
 
                 const fetchedProduct = response.data.singleProduct;
@@ -34,7 +35,9 @@ const ProductDetails = () => {
                     setActiveThumbnail(fetchedProduct.images[0]);
                 }
 
-                const relatedResponse = await axios.get(`${import.meta.env.VITE_REACT_APP_URL}/api/v1/product/relatedProducts/${fetchedProduct.category}`);
+                // const relatedResponse = await axios.get(`${import.meta.env.VITE_REACT_APP_URL}/api/v1/product/relatedProducts/${fetchedProduct.category}`);
+                const relatedResponse = await axios.get(`${import.meta.env.VITE_REACT_APP_URL}/api/v1/product/relatedProducts/${fetchedProduct.category._id}`);
+
                 const fetchedRelatedProducts = relatedResponse.data.relatedProducts;
                 setRelatedProducts(fetchedRelatedProducts);
             } catch (error) {
@@ -82,8 +85,8 @@ const ProductDetails = () => {
                                 <h4 className='salePrice'>Rs {product.salePrice}</h4>
                                 <h4 className='realPrice'>Rs {product.realPrice}</h4>
                             </div>
-                            <h4 className='productBrand'>{product.brand}</h4>
-                            <h4 className='productBrand'>{product.category}</h4>
+                            <h4 className='productBrand'> Brand: {product.brand.brandName}</h4>
+                            <h4 className='productBrand'>Category: {product.category.categoryName}</h4>
                             <p className='productDiscount'>{product.discount}% off</p>
                             <button className='cartBtn' onClick={handleAddToCart}>Add to Cart</button>
                         </div>
@@ -117,7 +120,7 @@ const ProductDetails = () => {
                                             <h4 className='salePrice'>Rs {relatedProduct.salePrice}</h4>
                                             <h4 className='realPrice'>Rs {relatedProduct.realPrice}</h4>
                                         </div>
-                                        <h4 className='productBrand'>{relatedProduct.brand}</h4>
+                                        <h4 className='productBrand'>{relatedProduct.brand.brandName}</h4>
                                     </div>
                                 </Link>
                             ))
