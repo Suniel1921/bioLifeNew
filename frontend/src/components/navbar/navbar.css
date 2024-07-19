@@ -1,0 +1,62 @@
+.logoImg {
+    width: 18%;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 12px;
+}
+
+.navlinks{
+    display: flex;
+    justify-content: center;
+    align-content:center;
+    gap: 2rem;
+}
+.navlinks li{
+    list-style-type: none;
+}
+.navlinks li a{
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+
+.user-initial {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+
+.hamburgerMenu{
+    display: none;
+    font-size: 33px;
+}
+
+
+
+
+
+/* media queries start from here */
+
+@media screen and (max-width: 850px) {
+    .navlinks{
+        display: none;
+    }
+    .hamburgerMenu{
+        display: block;
+    }
+    
+}
+
