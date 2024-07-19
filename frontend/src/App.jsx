@@ -17,6 +17,7 @@ import AdminRoute from './components/admin/adminProtectedRoute/AdminProtectedRou
 import CreateCategory from './components/admin/dashboardMainContent/category/CreateCategory';
 import CreateProduct from './components/admin/dashboardMainContent/products/CreateProduct';
 import CreateBrand from './components/admin/dashboardMainContent/brand/CreateBrand';
+import Blog from './pages/blog/Blog';
 
 
 
@@ -35,7 +36,7 @@ const App = () => {
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
             <Route path='/cart' element={<Cart />} />
-            {/* <Route path='/sunil' element={<AdminRoute/>} /> */}
+            <Route path='/blog' element={<Blog/>} />
 
             {/* protected route */}
             <Route element={<ProtectedRoute />}>    

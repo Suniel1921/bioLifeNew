@@ -14,7 +14,9 @@ const Home = () => {
         <HomeSlider/> 
         <DealOfTheDay/>
       <BestSeller/>
-      <Banner/>
+   <div className="container">
+   <Banner/>
+   </div>
       <TrendingProduct/>
      
       </div>
