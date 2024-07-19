@@ -10,43 +10,35 @@ const DealOfTheDay = () => {
     const [selectedImage, setSelectedImage] = useState('');
     const { addToCart } = useCartGlobally();
     
-    // Timer
-    const calculateTimeLeft = () => {
-        const difference = +new Date("2024-07-08T00:00:00") - +new Date();
-        let timeLeft = {};
-
-        if (difference > 0) {
-            timeLeft = {
-                hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-                minutes: Math.floor((difference / 1000 / 60) % 60),
-                seconds: Math.floor((difference / 1000) % 60),
-            };
-        } else {
-            timeLeft = {
-                hours: 10,
-                minutes: 50,
-                seconds: 20,
-            };
-        }
-
-        return timeLeft;
-    };
-
-    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+    // Timer duration
+    const initialHours = 15;
+    const initialMinutes = 40;
+    const initialSeconds = 3;
+    const initialTime = (initialHours * 3600 + initialMinutes * 60 + initialSeconds) * 1000;
+    const [timeLeft, setTimeLeft] = useState(initialTime);
 
     useEffect(() => {
         const timer = setInterval(() => {
-            const newTimeLeft = calculateTimeLeft();
-            setTimeLeft(newTimeLeft);
-
-            // Reset the timer if it has reached zero
-            if (newTimeLeft.hours === 0 && newTimeLeft.minutes === 0 && newTimeLeft.seconds === 0) {
-                setTimeLeft(calculateTimeLeft());
-            }
+            setTimeLeft(prevTime => {
+                if (prevTime <= 0) {
+                    clearInterval(timer); // Stop the timer when it reaches zero
+                    return 0;
+                }
+                return prevTime - 1000; // Decrease the time by 1 second
+            });
         }, 1000);
 
         return () => clearInterval(timer);
     }, []);
+
+    const formatTime = (time) => {
+        const hours = Math.floor(time / (1000 * 60 * 60));
+        const minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((time % (1000 * 60)) / 1000);
+        return { hours, minutes, seconds };
+    };
+
+    const { hours, minutes, seconds } = formatTime(timeLeft);
 
     // Fetch all products
     const getAllProducts = async () => {
@@ -96,15 +88,15 @@ const DealOfTheDay = () => {
                     </div>
                     <div className="deal-timer">
                         <div className="timer-box">
-                            <span className="timer-number">{String(timeLeft.hours).padStart(2, '0')}</span>
+                            <span className="timer-number">{String(hours).padStart(2, '0')}</span>
                             <span className="timer-label">Hours</span>
                         </div>
                         <div className="timer-box">
-                            <span className="timer-number">{String(timeLeft.minutes).padStart(2, '0')}</span>
+                            <span className="timer-number">{String(minutes).padStart(2, '0')}</span>
                             <span className="timer-label">Mins</span>
                         </div>
                         <div className="timer-box">
-                            <span className="timer-number">{String(timeLeft.seconds).padStart(2, '0')}</span>
+                            <span className="timer-number">{String(seconds).padStart(2, '0')}</span>
                             <span className="timer-label">Secs</span>
                         </div>
                     </div>
