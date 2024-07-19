@@ -9,19 +9,22 @@ import toast from 'react-hot-toast';
 import { useCartGlobally } from '../../context/CartContext';
 
 const ProductDetails = () => {
-    const { id } = useParams();
+    const { slug } = useParams();
+    // const { id } = useParams();
     const {addToCart} = useCartGlobally();
     const [product, setProduct] = useState(null);
+    console.log(product)
     const [mainImage, setMainImage] = useState('');
     const [activeThumbnail, setActiveThumbnail] = useState('');
     const [relatedProducts, setRelatedProducts] = useState([]);
     const [activeTab, setActiveTab] = useState('description');
 
     useEffect(() => {
+        console.log('Slug in ProductDetails:', slug); 
         const fetchProduct = async () => {
             try {
-                // const response = await axios.get(`http://localhost:4000/api/v1/product/getSingleProduct/${id}`);
-                const response = await axios.get(`${import.meta.env.VITE_REACT_APP_URL}/api/v1/product/getSingleProduct/${id}`);
+                const response = await axios.get(`${import.meta.env.VITE_REACT_APP_URL}/api/v1/product/getSingleProduct/${slug}`);
+
 
                 const fetchedProduct = response.data.singleProduct;
                 setProduct(fetchedProduct);
@@ -31,7 +34,6 @@ const ProductDetails = () => {
                     setActiveThumbnail(fetchedProduct.images[0]);
                 }
 
-                // const relatedResponse = await axios.get(`http://localhost:4000/api/v1/product/relatedProducts/${fetchedProduct.category}`);
                 const relatedResponse = await axios.get(`${import.meta.env.VITE_REACT_APP_URL}/api/v1/product/relatedProducts/${fetchedProduct.category}`);
                 const fetchedRelatedProducts = relatedResponse.data.relatedProducts;
                 setRelatedProducts(fetchedRelatedProducts);
@@ -40,7 +42,7 @@ const ProductDetails = () => {
             }
         };
         fetchProduct();
-    }, [id]);
+    }, [slug]);
 
     const handleThumbnailClick = (src) => {
         setMainImage(src);
@@ -81,6 +83,7 @@ const ProductDetails = () => {
                                 <h4 className='realPrice'>Rs {product.realPrice}</h4>
                             </div>
                             <h4 className='productBrand'>{product.brand}</h4>
+                            <h4 className='productBrand'>{product.category}</h4>
                             <p className='productDiscount'>{product.discount}% off</p>
                             <button className='cartBtn' onClick={handleAddToCart}>Add to Cart</button>
                         </div>
@@ -129,3 +132,4 @@ const ProductDetails = () => {
 };
 
 export default ProductDetails;
+

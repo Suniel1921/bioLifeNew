@@ -20,8 +20,6 @@ import CreateBrand from './components/admin/dashboardMainContent/brand/CreateBra
 import Blog from './pages/blog/Blog';
 
 
-
-
 const App = () => {
 
   return (
@@ -31,7 +29,8 @@ const App = () => {
         <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/contact' element={<Contact />} />
-            <Route path='/products-details/:id' element={<ProductDetails/>}/>
+            <Route path='/products-details/:slug' element={<ProductDetails/>}/>
+            {/* <Route path='/products-details/:id' element={<ProductDetails/>}/> */}
             <Route path='/products' element={<Products />} />
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />

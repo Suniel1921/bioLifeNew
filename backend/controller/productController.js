@@ -112,21 +112,21 @@ exports.getAllProducts = async (req, res) => {
 }
 
 //get single product
-exports.getSingleProduct = async (req ,res)=>{
+exports.getSingleProduct = async (req, res) => {
     try {
-        const {id} = req.params;
-        const singleProduct = await productModel.findById(id);
-        if(!singleProduct){
-            return res.status(400).json({success: false, message: 'single product not found'});
-        }
-        return res.status(200).json({success: true, message: 'single data found', singleProduct});
-        
+      const { slug } = req.params;
+      console.log('Slug received:', slug); // Debugging log
+      const singleProduct = await productModel.findOne({ slug });
+      if (!singleProduct) {
+        return res.status(400).json({ success: false, message: 'Single product not found' });
+      }
+      return res.status(200).json({ success: true, message: 'Single data found', singleProduct });
     } catch (error) {
-        return res.status(500).json({success: false, messag: `internal server error ${error}`})
-        
+      console.error(`Internal server error: ${error}`);
+      return res.status(500).json({ success: false, message: `Internal server error: ${error}` });
     }
-}
-
+  };
+  
 
 
 

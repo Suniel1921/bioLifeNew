@@ -117,7 +117,9 @@ const Products = () => {
                   ) : (
                     filterData.length > 0 ? (
                       filterData.map((product) => (
-                        <Link className='link' key={product._id} to={`/products-details/${product._id}`}>
+                        <Link className='link' key={product._id} to={`/products-details/${product.slug}`}>
+                          {console.log(product.slug)}
+                        {/* <Link className='link' key={product._id} to={`/products-details/${product._id}`}> */}
                           <div className='productChildContainer'>
                             <img className='productImg' src={product.images[0]} alt={product.name} />
                             <p className='productName'>
