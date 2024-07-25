@@ -121,3 +121,63 @@ h2 {
     color: var(--secondaryBlueColor);
 }
 
+
+
+
+
+
+
+
+
+
+
+/* CSS for reviews and rating stars */
+.reviewsContainer, .reviewFormContainer {
+    margin: 20px 0;
+}
+
+.review {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.reviewRating {
+    color: #f39c12;
+    font-size: 1.2em;
+}
+
+.ratingInput {
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.ratingInput span {
+    font-size: 2em;
+    color: #ccc;
+}
+
+.ratingInput .activeStar {
+    color: #f39c12;
+}
+
+.reviewFormContainer textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.reviewFormContainer button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reviewFormContainer button:hover {
+    background-color: #0056b3;
+}

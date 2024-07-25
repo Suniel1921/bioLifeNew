@@ -41,7 +41,7 @@ const TrendingProduct = () => {
           <h2 className='trendingHeading'>Trending Products</h2>
           <div className="trendingCard">
             {products.map((tProduct) => (
-              <Link className='link' key={tProduct._id} to={`/products-details/${tProduct._id}`}>
+              <Link className='link' key={tProduct._id} to={`/products-details/${tProduct.slug}`}>
               <div key={tProduct.id} className="cardContainer">
                 <img className='trendingImg' src={tProduct.images[0]} alt={tProduct.name} />
                 <div className='tredingCardDetails'>
