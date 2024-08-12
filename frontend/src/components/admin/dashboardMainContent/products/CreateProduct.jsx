@@ -226,7 +226,7 @@ const CreateProduct = () => {
 
     return (
         <div className="adminDashboard">
-            <Toaster /> {/* Add Toaster component for toast notifications */}
+            <Toaster /> 
             <div className="sideMenuContainer">
                 <SideMenu />
             </div>
