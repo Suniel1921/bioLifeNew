@@ -1,13 +1,22 @@
 .logoImg {
-    width: 18%;
+    width: 30%;
 }
 
 .navbar{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-content: center;
     padding: 12px;
+    
 }
+
+/* .navbar{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+} */
+
 
 .navlinks{
     display: flex;
@@ -15,12 +24,13 @@
     align-content:center;
     gap: 2rem;
 }
+
 .navlinks li{
     list-style-type: none;
 }
 .navlinks li a{
     text-decoration: none;
-    font-size: 20px;
+    font-size: 15px;
     color: black;
 }
 

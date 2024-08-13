@@ -5,6 +5,7 @@ import DealOfTheDay from '../../components/deal_of_the_Day/DealOfTheDay';
 import BestSeller from '../../components/bestSeller/BestSeller';
 import Banner from '../../components/banner/Banner';
 import TrendingProduct from '../../components/bestSeller/trending/TrendingProduct';
+import CategoryList from '../../components/categoryList/CategoryList';
 const Home = () => {
   return (
     <>
@@ -12,6 +13,7 @@ const Home = () => {
      
       <div className="home"> 
         <HomeSlider/> 
+        <CategoryList/>
         <DealOfTheDay/>
       <BestSeller/>
    <div className="container">

@@ -1,0 +1,20 @@
+.categoryHeading{
+    margin-top: 12px;
+    color: #424242;
+    font-size: 23px;
+}
+
+.categoryList{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.categoryListName{
+    color: black;
+    text-decoration: none;
+    list-style-type: none;
+}

@@ -56,15 +56,19 @@ const HomeSlider = () => {
     <div className="homeSliderContainer">
       <div className="container">
         <Slider {...settings}>
-          <div>
-            <img src="/images/slide1.png" alt="Watch 1" />
+        <div>
+            <img src="/images/slider6.jpg" alt="Watch 3" />
           </div>
           <div>
             <img src="/images/slide2.png" alt="Watch 2" />
           </div>
           <div>
-            <img src="/images/slide3.png" alt="Watch 3" />
+            <img src="/images/slide04.jpg" alt="Watch 3" />
           </div>
+          <div>
+            <img src="/images/slide5.png" alt="Watch 3" />
+          </div>
+       
         </Slider>
       </div>
     </div>
