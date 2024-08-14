@@ -57,7 +57,7 @@ const BestSeller = () => {
           {/* Filter section */}
           <div className="filterContainer">
             <div className="filterHeading">
-              <h3>Best Sellers</h3>
+              <h3 className='homeHeading'>Best Sellers</h3>
             </div>
             <div className="categoryFilter">
               <p onClick={() => handleCategoryClick('All')} className={selectedCategory === 'All' ? 'active' : ''}>All</p>
@@ -86,7 +86,7 @@ const BestSeller = () => {
                     <Link className='link' key={product._id} to={`/products-details/${product.slug}`}>
                       <div className='productChildContainer'>
                         <img className='productImg' src={product.images[0]} alt={product.name} />
-                        <h2 className='productName product-title'>
+                        <h2 className='productName product-title homePage_product_title'>
                           {product.name.length > 20 ? `${product.name.slice(0, 20)}...` : product.name}
                         </h2>
                         <p className='productHeading'>{product.heading}</p>

@@ -38,7 +38,7 @@ const TrendingProduct = () => {
     <div className="trendingProduct">
       <div className="container">
         <div className="trendingProductContainer">
-          <h2 className='trendingHeading'>Trending Products</h2>
+          <h2 className='trendingHeading homeHeading'>Trending Products</h2>
           <div className="trendingCard">
             {products.map((tProduct) => (
               <Link className='link' key={tProduct._id} to={`/products-details/${tProduct.slug}`}>
@@ -46,7 +46,7 @@ const TrendingProduct = () => {
                 <img className='trendingImg' src={tProduct.images[0]} alt={tProduct.name} />
                 <div className='tredingCardDetails'>
                   <p>{tProduct?.category?.categoryName}</p>
-                  <h4>{tProduct.name.slice(0,25)}</h4>
+                  <h4 className='homePage_product_title'>{tProduct.name.slice(0,25)}</h4>
                   <div className="product-rating"> <span>⭐⭐⭐⭐⭐</span></div>
                   <div className='trendingPrice'>
                     <p>Rs {tProduct.salePrice}</p>

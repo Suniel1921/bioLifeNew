@@ -1,8 +1,11 @@
 .search{
     /* padding: 7px 33px; */
-    width: 70%;
-    padding: 8px;
+    width: 85%;
+    padding: 9px;
     border: 1px solid gray;
     outline: none;
-    border-radius: 3px;
+    border: none;
+    background-color: #F4F4F4;
+    border-radius: 50px;
 }
+
