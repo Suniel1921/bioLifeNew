@@ -1,13 +1,14 @@
 .images img{
   width: 100%;
+
 }
-
-
 
 
 .homeSliderContainer {
   width: 100%;
   position: relative;
+  overflow: hidden; 
+  /* height: 50vh; */
 }
 
 .container {
